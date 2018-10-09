@@ -1,0 +1,147 @@
+.week-item{
+    .day-col{
+        padding: 0 10px 0 10px;
+        border-right: 1px solid $lightGrey;
+        font-size: 12px;
+
+        h4{
+            text-align: center;
+        }
+
+        ul{
+            list-style-type: none;
+            padding: 0;
+    
+            .day-row{
+                display: flex;
+                padding: 2px 0;
+               
+                .day-data{
+                    display: inline-block;
+                    width: 96px;
+
+                    span{
+                        padding-left: 5px;
+                    }
+
+                    .day-data-time{
+                        position: absolute;
+                        display: none;
+                        color: darken($lightGrey, 15%);
+                        padding-top: 16px;
+                        margin-left: -50px;
+                    }
+    
+                    .day-data-temp,
+                    .day-data-wind{
+                        padding: 4px;
+                    }
+                }
+            }
+        }
+    }
+
+    &:first-child{
+        .day-col{
+            border-left: 1px solid $lightGrey;
+
+            .day-data{
+                .day-data-time{
+                    position: absolute;
+                    display: inline-block !important;
+                    color: darken($lightGrey, 15%);
+                    padding-top: 16px;
+                    margin-left: -50px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .week-item{
+        &:nth-child(5){
+            .day-col{
+                border-left: 1px solid $lightGrey;
+    
+                .day-data{
+                    .day-data-time{
+                        display: inline-block !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .week-item{
+        &:nth-child(4){
+            .day-col{
+                border-left: 1px solid $lightGrey;
+    
+                .day-data{
+                    .day-data-time{
+                        display: inline-block !important;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(5){
+            .day-col{
+                border-left: 1px solid $lightGrey;
+                .day-data{
+                    .day-data-time{
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 525px) {
+    .week-item{
+        &:nth-child(3),
+        &:nth-child(5){
+            .day-col{
+                border-left: 1px solid $lightGrey;
+    
+                .day-data{
+                    .day-data-time{
+                        display: inline-block !important;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(4){
+            .day-col{
+                border-left: 1px solid $lightGrey;
+                .day-data{
+                    .day-data-time{
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 365px) {
+    .week-item{
+        .day-col{
+            border-left: 1px solid $lightGrey;
+            ul{
+                .day-row{
+                    .day-data{
+                        .day-data-time{
+                            display: inline-block !important;
+                        }
+                    }
+                }
+            }
+        }  
+    }
+}

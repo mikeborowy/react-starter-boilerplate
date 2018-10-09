@@ -1,0 +1,10 @@
+@import './colors.scss';
+@import './fonts.scss';
+@import '../components/mainScreen/mainScreen.scss';
+@import '../components/mainScreen/currentDayWeather/currentDayWeather.scss';
+@import '../components/mainScreen/dayWeather/dayWeather.scss';
+
+body{
+    font-family: 'Roboto';
+    background-color: rgb(122, 122, 122);
+}
