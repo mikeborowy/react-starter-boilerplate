@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
+import {LazyLoadImage} from 'react-lazy-load-image-component';
 import {iconsGFX, infoIconsGFX} from '../../../assets/icons/icons';
 import {daysOfWeek} from '../../../cfg';
 
@@ -32,7 +33,7 @@ const defaultProps = {
     windSpd: 0
 };
 
-const CurrentDayWeatherProps = (props) => {
+const CurrentDayWeather = (props) => {
     const date = new Date(props.date * 1000);
     const dayName = daysOfWeek[date.getDay()]; 
     const timeArr = date.toDateString().split(' '); 
@@ -65,13 +66,13 @@ const CurrentDayWeatherProps = (props) => {
                 </h3>
             </Grid>
             <Grid item>
-                <img src={iconsGFX[`i_${props.icon}`]}/>
+                <LazyLoadImage alt={props.icon} src={iconsGFX[`i_${props.icon}`]} />
             </Grid>
         </Grid>
     );
 };
 
-CurrentDayWeatherProps.propTypes = propTypes;
-CurrentDayWeatherProps.defaultProps = defaultProps;
+CurrentDayWeather.propTypes = propTypes;
+CurrentDayWeather.defaultProps = defaultProps;
 
-export default CurrentDayWeatherProps;
+export default CurrentDayWeather;

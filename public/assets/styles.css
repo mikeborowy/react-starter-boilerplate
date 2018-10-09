@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url(/assets/fonts/Roboto-Thin.eot);
+  src: url(/assets/fonts/Roboto-Thin.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/Roboto-Thin.woff2) format("woff2"), url(/assets/fonts/Roboto-Thin.woff) format("woff"), url(/assets/fonts/Roboto-Thin.ttf) format("truetype"), url(/assets/fonts/Roboto-Thin.svg#Roboto) format("svg"); }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(/assets/fonts/Roboto-Regular.eot);
+  src: url(/assets/fonts/Roboto-Regular.eot) format("embedded-opentype"), url(/assets/fonts/Roboto-Regular.woff2) format("woff2"), url(/assets/fonts/Roboto-Regular.woff) format("woff"), url(/assets/fonts/Roboto-Regular.ttf) format("truetype"), url(/assets/fonts/Roboto-Regular.svg#Roboto) format("svg");
+  font-weight: 400;
+  font-style: normal; }
+
+.week {
+  padding-left: 20px; }
+
+.current-date {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+  .current-date h1,
+  .current-date h2,
+  .current-date h3,
+  .current-date h4,
+  .current-date h5 {
+    margin-top: 0;
+    margin-bottom: 0; }
+  .current-date .current-date-header,
+  .current-date .current-date-temp,
+  .current-date .current-date-wind {
+    height: 66px;
+    padding: 0 20px 0 20px; }
+    .current-date .current-date-header span,
+    .current-date .current-date-temp span,
+    .current-date .current-date-wind span {
+      padding-left: 10px; }
+  .current-date .current-date-header,
+  .current-date .current-date-temp {
+    border-right: 1px solid grey; }
+    .current-date .current-date-header h5,
+    .current-date .current-date-temp h5 {
+      padding-left: 20px; }
+
+.week-item .day-col {
+  padding: 0 10px 0 10px;
+  border-right: 1px solid #e7e7e7;
+  font-size: 12px; }
+  .week-item .day-col h4 {
+    text-align: center; }
+  .week-item .day-col ul {
+    list-style-type: none;
+    padding: 0; }
+    .week-item .day-col ul .day-row {
+      display: -ms-flexbox;
+      display: flex;
+      padding: 2px 0; }
+      .week-item .day-col ul .day-row .day-data {
+        display: inline-block;
+        width: 96px; }
+        .week-item .day-col ul .day-row .day-data span {
+          padding-left: 5px; }
+        .week-item .day-col ul .day-row .day-data .day-data-time {
+          position: absolute;
+          display: none;
+          color: #c1c1c1;
+          padding-top: 16px;
+          margin-left: -50px; }
+        .week-item .day-col ul .day-row .day-data .day-data-temp,
+        .week-item .day-col ul .day-row .day-data .day-data-wind {
+          padding: 4px; }
+
+.week-item:first-child .day-col {
+  border-left: 1px solid #e7e7e7; }
+  .week-item:first-child .day-col .day-data .day-data-time {
+    position: absolute;
+    display: inline-block !important;
+    color: #c1c1c1;
+    padding-top: 16px;
+    margin-left: -50px; }
+
+@media only screen and (max-width: 820px) {
+  .week-item:nth-child(5) .day-col {
+    border-left: 1px solid #e7e7e7; }
+    .week-item:nth-child(5) .day-col .day-data .day-data-time {
+      display: inline-block !important; } }
+
+@media only screen and (max-width: 680px) {
+  .week-item:nth-child(4) .day-col {
+    border-left: 1px solid #e7e7e7; }
+    .week-item:nth-child(4) .day-col .day-data .day-data-time {
+      display: inline-block !important; }
+  .week-item:nth-child(5) .day-col {
+    border-left: 1px solid #e7e7e7; }
+    .week-item:nth-child(5) .day-col .day-data .day-data-time {
+      display: none !important; } }
+
+@media only screen and (max-width: 525px) {
+  .week-item:nth-child(3) .day-col, .week-item:nth-child(5) .day-col {
+    border-left: 1px solid #e7e7e7; }
+    .week-item:nth-child(3) .day-col .day-data .day-data-time, .week-item:nth-child(5) .day-col .day-data .day-data-time {
+      display: inline-block !important; }
+  .week-item:nth-child(4) .day-col {
+    border-left: 1px solid #e7e7e7; }
+    .week-item:nth-child(4) .day-col .day-data .day-data-time {
+      display: none !important; } }
+
+@media only screen and (max-width: 365px) {
+  .week-item .day-col {
+    border-left: 1px solid #e7e7e7; }
+    .week-item .day-col ul .day-row .day-data .day-data-time {
+      display: inline-block !important; } }
+
+body {
+  font-family: 'Roboto';
+  background-color: #7a7a7a; }
+
+/*# sourceMappingURL=styles.css.map*/

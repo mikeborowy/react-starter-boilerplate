@@ -14,12 +14,14 @@ const GLOBALS = {
 module.exports = {
 	mode: 'production',//'production' | 'development' | 'none'
 	devtool: 'source-map',
-	entry: "./src/index",
+	entry: {
+		app: './src/index.js'
+	},
 	target: 'web',
 	output: {
 		path: __dirname + "/public/assets",
 		publicPath: "/assets",
-		filename: "bundle.js"
+		filename: '[name].js'
 	},
 	devServer: {
 		inline: true,
@@ -27,11 +29,21 @@ module.exports = {
 		port: 3000
 	},
 	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				default: false,
+				commons: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendor',
+					chunks: 'all',
+				}
+			}
+		},
 		minimizer: [
 			new UglifyJsPlugin({
 				uglifyOptions: {
 					mangle: true,
-				},
+				}
 			}),
 			new OptimizeCssAssetsPlugin({
 				assetNameRegExp: /\.optimize\.css$/g,

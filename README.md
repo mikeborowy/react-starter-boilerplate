@@ -1,5 +1,5 @@
 # weather-app
-Simple Weather App 
+React starter biolerplate 
 
 Online demo:
 http://weather.2bvisible.pl/
