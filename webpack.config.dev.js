@@ -14,16 +14,21 @@ const autoprefixer = require('autoprefixer')({
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-	mode: 'development',//'production' | 'development' | 'none'
+	mode: 'development',
 	devtool: 'source-map',
 	entry: [
 		'webpack-hot-middleware/client',
-		path.join( __dirname, '/src/index.js')
+		path.join( __dirname, './src/index.js')
 	],
 	target: 'web',
 	output: {
 		path: '/',
 		filename: './bundle.js'
+	},
+	resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+		}
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
@@ -47,12 +52,12 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.jsx?$/,
+				test: /\.(js|jsx|ts|tsx)$/,
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets:['react','es2015']
+						presets:[ '@babel/preset-react', "@babel/preset-typescript" ]
 					}
 				}
 			},

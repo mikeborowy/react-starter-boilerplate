@@ -13,14 +13,14 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
   // since a separate spreadsheet is only utilized for the production build, need to dynamically add this here.
   $('head').prepend('<meta charset="utf-8">\n');
   $('head').prepend('<link type="text/css" rel="stylesheet" href="../assets/styles.css">\n'+
-    '<link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png">\n' + 
+    '<link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png">\n' +
     '<script async="" src="../assets/vendor.js"></script>\n');
   $('body').find($('script')).remove();
   $('#app').after();
   $('#app').after('<script src="../assets/app.js"></script>\n');
   fs.writeFile('public/index.html', $.html(), 'utf8', function (err) {
-    if(err){ 
-      return console.log(err); 
+    if(err){
+      return console.log(err);
     }
     console.log('index.html written to /public'.green);
   });

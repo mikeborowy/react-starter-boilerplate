@@ -12,7 +12,7 @@ const GLOBALS = {
 };
 
 module.exports = {
-	mode: 'production',//'production' | 'development' | 'none'
+	mode: 'production',
 	devtool: 'source-map',
 	entry: {
 		app: './src/index.js'
@@ -61,7 +61,7 @@ module.exports = {
 		new webpack.DefinePlugin(GLOBALS),//defines vars avaialble to livraries
 		new webpack.optimize.OccurrenceOrderPlugin(), //optimizes the order files are bundled
 		new ExtractTextPlugin({
-			filename: 'styles.css', 
+			filename: 'styles.css',
 			allChunks: true
 		})
 	],
@@ -72,7 +72,7 @@ module.exports = {
 	module: {
 		rules: [{
 				test: /\.js$/,
-				include: path.join(__dirname, 'src'), 
+				include: path.join(__dirname, 'src'),
 				exclude: /(node_modules)/,
 				loader: "babel-loader",
 			},
@@ -89,13 +89,13 @@ module.exports = {
 					use: [
 						{
 							loader: 'css-loader', // translates CSS into CommonJS modules
-						}, 
+						},
 						{
 							loader: 'postcss-loader', // Run post css actions
 							options: {
 								plugins: () => [precss, autoprefixer] // post css plugins, can be exported to postcss.config.js
 							}
-						}, 
+						},
 						{
 							loader: 'sass-loader' // compiles SASS to CSS
 						}
@@ -103,22 +103,22 @@ module.exports = {
 				})
 			},
 			// Font Definitions
-			{ 
-				test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,  
-				use: ['file-loader?limit=10000&name=/fonts/[name].[ext]'] 
+			{
+				test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
+				use: ['file-loader?limit=10000&name=/fonts/[name].[ext]']
 			},
-			{ 
-				test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 		
-				use: ['file-loader?limit=10000&name=/fonts/[name].[ext]'] 
+			{
+				test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+				use: ['file-loader?limit=10000&name=/fonts/[name].[ext]']
 			},
-			{ 
-				test: /\.[ot]tf(\?v=\d+\.\d+\.\d+)?$/, 
-				use: ['file-loader?limit=10000&name=/fonts/[name].[ext]'] 
+			{
+				test: /\.[ot]tf(\?v=\d+\.\d+\.\d+)?$/,
+				use: ['file-loader?limit=10000&name=/fonts/[name].[ext]']
 			},
 			//Svg
-			{ 
-				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, 		
-				use: ['file-loader?limit=10000&name=/fonts/[name].[ext]'] 
+			{
+				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+				use: ['file-loader?limit=10000&name=/fonts/[name].[ext]']
 			},
 			// Images
 			{
