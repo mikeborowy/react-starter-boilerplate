@@ -5,7 +5,7 @@ const precss = require('precss');
 //Plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin')
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production')
@@ -19,7 +19,7 @@ module.exports = {
 	},
 	target: 'web',
 	output: {
-		path: __dirname + "/public/assets",
+		path: path.join(__dirname, "../public/assets"),
 		publicPath: "/assets",
 		filename: '[name].js'
 	},
@@ -40,10 +40,14 @@ module.exports = {
 			}
 		},
 		minimizer: [
-			new UglifyJsPlugin({
-				uglifyOptions: {
-					mangle: true,
-				}
+			new TerserPlugin({
+				parallel: true,
+				terserOptions: {
+					ecma: 6,
+					output: {
+						comments: false
+					}
+				},
 			}),
 			new OptimizeCssAssetsPlugin({
 				assetNameRegExp: /\.optimize\.css$/g,
@@ -70,18 +74,25 @@ module.exports = {
 		dns: 'empty'
 	},
 	module: {
-		rules: [{
-				test: /\.js$/,
-				include: path.join(__dirname, 'src'),
+		rules: [
+			{
+				test: /\.(js|jsx)$/,
+				include: path.join(__dirname, '../src'),
 				exclude: /(node_modules)/,
 				loader: "babel-loader",
+				options: {
+					presets:[ '@babel/preset-react', "@babel/preset-typescript" ]
+				}
 			},
 			{
 				test: /\.json$/,
 				exclude: /(node_modules)/,
 				loader: "json-loader"
 			},
-			{ test: /bootstrap\/js\//, loader: 'imports?jQuery=jquery'},
+			{
+				test: /bootstrap\/js\//,
+				loader: 'imports?jQuery=jquery'
+			},
 			// CSS Definitions
 			{
 				test: /\.(css|scss)$/,

@@ -1,7 +1,7 @@
 {
   "name": "react-starter-boilerplate",
-  "version": "1.0.0",
-  "description": "Simple small weather app written in react",
+  "version": "2.1.0",
+  "description": "React project boilerplate",
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel lint-watch serv-src",
@@ -123,6 +123,7 @@
     "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.2.3",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "url": "^0.11.0",
     "url-loader": "^1.1.2",
