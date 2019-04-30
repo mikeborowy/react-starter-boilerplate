@@ -18,7 +18,7 @@ module.exports = {
 	devtool: 'source-map',
 	entry: [
 		'webpack-hot-middleware/client',
-		path.join( __dirname, './src/index.js')
+		path.join( __dirname, '../src/index.js')
 	],
 	target: 'web',
 	output: {
@@ -52,12 +52,12 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.(js|jsx|ts|tsx)$/,
+				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets:[ '@babel/preset-react', "@babel/preset-typescript" ]
+						presets:['@babel/preset-react']
 					}
 				}
 			},
