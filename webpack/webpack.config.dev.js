@@ -58,9 +58,15 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets:[ '@babel/preset-react', "@babel/preset-typescript" ]
+						presets:['@babel/preset-react']
 					}
 				},
+			},
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /(node_modules)/,
+				include: path.join(__dirname, 'src'),
+				loader: require.resolve('babel-loader'),
 				options: {
 					// This is a feature of `babel-loader` for webpack (not Babel itself).
 					// It enables caching results in ./node_modules/.cache/babel-loader/

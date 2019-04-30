@@ -5,7 +5,7 @@ const precss = require('precss');
 //Plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production')
@@ -81,7 +81,7 @@ module.exports = {
 				exclude: /(node_modules)/,
 				loader: "babel-loader",
 				options: {
-					presets:[ '@babel/preset-react', "@babel/preset-typescript" ]
+					presets:['@babel/preset-react']
 				}
 			},
 			{

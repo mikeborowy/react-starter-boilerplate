@@ -14,7 +14,10 @@ export default function initStore() {
     return createStore(
         rootReducers,
         compose(
-            applyMiddleware(thunk, Logger),
+            applyMiddleware(
+                thunk,
+                Logger
+            ),
             window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
         )
     );
